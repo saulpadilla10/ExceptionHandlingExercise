@@ -21,28 +21,46 @@ namespace ExceptionHandlingExercise
 
 
             //TODO START HERE:
-            
+
+            char[] arr = { '6', '5', '0', '8', '1', '2', 'Q', 'Z', 'X' };
+
+            var numbers = new List<int>();
+
+            string str = string.Empty;
+
+           
             // Make a foreach loop to iterate through your character array
-            
-                // Now create a try catch
-                
-                
-                    // Inside your try block
-                        // set your string variable to each array element in your char[] to .ToString()
-                        // Now, using int.Parse, parse your string variable and store in an int variable
-                        // Then add each int to your list
-                
+
+            // Now create a try catch
+            foreach(var unit in arr)
+
+                try
+                {
+                    str = unit.ToString();
+                    var num = int.Parse(str);
+                    numbers.Add(num);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Unable to Parse '{unit}': {e.Message}");
+                }
+
+
+                // Inside your try block
+                // set your string variable to each array element in your char[] to .ToString()
+                // Now, using int.Parse, parse your string variable and store in an int variable
+                // Then add each int to your list
+
                 // catch your Exception:
                 // in the scope of your catch you can use the following, 
-                
-                    //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
-                
-            
 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+                //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
+              
+            foreach (var num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+
         }
     }
 }
